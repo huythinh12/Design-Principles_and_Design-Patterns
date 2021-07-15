@@ -3,44 +3,43 @@
 
 namespace ContructorInjection
 {
-    //-----------------------------------Example 1------------------------------------- 
-    public class Logger
-    {
-        public void Log(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
-    public class DbMigrator
-    {
-        //composition
-        private readonly Logger logger;
-        public DbMigrator(Logger logger)
-        {
-            this.logger = logger;
-        }
-        public void Migrate()
-        {
-            //viet ra thong bao trong qua trinh migrate 
-            logger.Log("We are migrating blah blah blha...");
-        }
-    }
-    public class Installer
-    {
-        //composition
-        private readonly Logger logger;
-        public Installer(Logger logger)
-        {
-            this.logger = logger;
-        }
-        public void Install()
-        {
-            //viet ra thong bao trong qua trinh install app
-            logger.Log("We are installing the application");
-        }
-    }
+  
+    //-----------------------------------Example------------------------------------- 
+    //-----------------------------------Problem------------------------------------- 
+    /*  public class EmailService
+      {
+          public void sendMeassage(string message)
+          {
+              Console.WriteLine("Email message " + message);
+          }
+      }
 
-    //-----------------------------------Example 2------------------------------------- 
+      public class SmsService
+      {
+          public void sendMeassage(string message)
+          {
+              Console.WriteLine("Email message " + message);
+          }
+      }
+
+      public class UserController
+      {
+          private EmailService emailService = new EmailService();
+          private SmsService smsService = new SmsService();
+
+          public void sendEmail()
+          {
+              emailService.sendMeassage("UserController");
+          }
+
+          public void sendSms()
+          {
+              smsService.sendMeassage("UserController");
+
+          }
+      }
+    */
+    //-----------------------------------Solved-------------------------------------
     public interface MessageService
     {
         void sendMessage(string message);

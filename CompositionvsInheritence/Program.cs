@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CompositionvsInheritence
 {
@@ -15,6 +12,7 @@ namespace CompositionvsInheritence
                 Console.WriteLine(message);
             }
         }
+
         public class DbMigrator
         {
             //composition
@@ -22,10 +20,10 @@ namespace CompositionvsInheritence
             public void Migrate()
             {
                 logger = new Logger();
-                //viet ra thong bao trong qua trinh migrate 
-                logger.Log("We are migrating blah blah blha...");
+                logger.Log("We are migrating blah blah blah...");
             }
         }
+
         public class Installer
         {
             //composition
@@ -34,11 +32,11 @@ namespace CompositionvsInheritence
             public void Install()
             {
                 logger = new Logger();
-                //viet ra thong bao trong qua trinh install app
                 logger.Log("We are installing the application");
             }
         }
     }
+
     namespace Inheritence
     {
         public class Logger
@@ -52,7 +50,6 @@ namespace CompositionvsInheritence
         {
             public void Migrate()
             {
-                //viet ra thong bao trong qua trinh migrate 
                 Log("We are migrating blah blah blha...");
             }
         }
@@ -60,7 +57,6 @@ namespace CompositionvsInheritence
         {
             public void Install()
             {
-                //viet ra thong bao trong qua trinh install app
                 Log("We are installing the application");
             }
         }
