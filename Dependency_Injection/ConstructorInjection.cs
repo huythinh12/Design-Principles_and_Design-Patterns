@@ -3,6 +3,7 @@
 
 namespace ContructorInjection
 {
+    //-----------------------------------Example 1------------------------------------- 
     public class Logger
     {
         public void Log(string message)
@@ -36,6 +37,31 @@ namespace ContructorInjection
         {
             //viet ra thong bao trong qua trinh install app
             logger.Log("We are installing the application");
+        }
+    }
+
+    //-----------------------------------Example 2------------------------------------- 
+    public interface MessageService
+    {
+        void sendMessage(string message);
+    }
+    public class EmailService : MessageService
+    {
+        public void sendMessage(string message)
+        {
+            Console.WriteLine("Email message " + message);
+        }
+    }
+    public class UserController
+    {
+        private readonly MessageService messageService;
+        public UserController(MessageService messageService)
+        {
+            this.messageService = messageService;
+        }
+        public void send()
+        {
+            messageService.sendMessage("User Controller");
         }
     }
 }
