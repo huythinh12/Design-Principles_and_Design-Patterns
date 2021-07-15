@@ -52,6 +52,13 @@ namespace ContructorInjection
             Console.WriteLine("Email message " + message);
         }
     }
+    public class SmsService : MessageService
+    {
+        public void sendMessage(string message)
+        {
+            Console.WriteLine("SmsService message " + message);
+        }
+    }
     public class UserController
     {
         private readonly MessageService messageService;
