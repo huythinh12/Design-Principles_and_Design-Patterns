@@ -58,6 +58,10 @@
     <Compile Include="FactoryMethod\Shape\Square.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\Character.cs" />
+    <Compile Include="Strategy\Dragon.cs" />
+    <Compile Include="Strategy\Human.cs" />
+    <Compile Include="Strategy\IMovementStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
