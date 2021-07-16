@@ -1,9 +1,11 @@
 ﻿using System;
+//FactoryMethod
 using DesignPattern.FactoryMethod.FactoryAnimal;
 using DesignPattern.FactoryMethod.Animal;
-
 using DesignPattern.FactoryMethod.FactoryShape;
 using DesignPattern.FactoryMethod.Shape;
+//Strategy
+using DesignPattern.Strategy;
 
 namespace DesignPattern
 {
@@ -12,6 +14,21 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
+            FactoryMethod();
+            Strategy();
+            Console.ReadKey();
+        }
+        private static void Strategy()
+        {
+            Console.WriteLine("----------------------------Strategy----------------------------");
+            Character character = new Character();
+            character.SetMovementStrategy(new Human());
+            character.GetMovementType();
+            character.DisplayInfo("Lariod",100,50);
+        }
+        private static void FactoryMethod()
+        {
+            Console.WriteLine("----------------------------FactoryMethod ----------------------------");
             Console.WriteLine("----------------------------Example 1----------------------------");
             // khởi tạo factory
             IAnimalFactory factory;
@@ -59,8 +76,6 @@ namespace DesignPattern
             shape2.Draw();
             IShape shape3 = factoryShape.CreatShape("Square");
             shape3.Draw();
-
-            Console.ReadKey();
         }
     }
 }
