@@ -16,11 +16,11 @@ namespace DesignPattern.Observer.AnimeObserver
             Console.WriteLine("Comment :" + animFanclub.animeMovie.comment);
             if (animFanclub.animeMovie.isCompleted == true)
             {
-                Console.WriteLine("Completed");
+                Console.WriteLine("Status : Completed");
             }
             else
             {
-                Console.WriteLine("Waiting next chapter");
+                Console.WriteLine("Status : Waiting next chapter");
             }
         }
     }

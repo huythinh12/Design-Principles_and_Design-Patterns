@@ -48,12 +48,16 @@ namespace DesignPattern.Observer.AnimeObserver
             animeMovie.name = name;
             animeMovie.comment = comment;
             animeMovie.isCompleted = isCompleted;
+            Notify();
         }
+        
 
         public void PostsEventToGroup(string name, string caption)
         {
             animeEvent.eventName = name;
             animeEvent.caption = caption;
+            
+            Notify();
         }
     }
 }

@@ -36,13 +36,15 @@ namespace DesignPattern
             animeFanclub.Attach(userA);
             animeFanclub.PostsAnimeMovieToGroup("AttackOnTitan", "so awesome", true);
 
+            Console.WriteLine("----------------------------Create Something New ----------------------------");
             UserB userB = new UserB();
             animeFanclub.Attach(userB);
-            animeFanclub.PostsAnimeMovieToGroup("OnePunch", "What is fun of your life", false);
+            animeFanclub.PostsAnimeMovieToGroup("OnePunch", "What is fun of your life", false);            
+            animeFanclub.PostsEventToGroup("Limited Edition Figure Random", "Only one day");
 
             animeFanclub.Detach(userA);
             animeFanclub.Detach(userB);
-
+            Console.WriteLine("----------------------------Create Something New ----------------------------");
             animeFanclub.PostsAnimeMovieToGroup("OnePiece", "this is never end??", false);
             animeFanclub.PostsEventToGroup("Be yourself Together", "Summer event");
 
