@@ -4,8 +4,13 @@ using DesignPattern.FactoryMethod.FactoryAnimal;
 using DesignPattern.FactoryMethod.Animal;
 using DesignPattern.FactoryMethod.FactoryShape;
 using DesignPattern.FactoryMethod.Shape;
+
 //Strategy
 using DesignPattern.Strategy;
+
+//Observer
+using DesignPattern.Observer.BasicObserver;
+using DesignPattern.Observer.AnimeObserver;
 
 namespace DesignPattern
 {
@@ -14,10 +19,76 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            FactoryMethod();
-            Strategy();
+            //FactoryMethod();
+            //Strategy();
+            Observer();
             Console.ReadKey();
         }
+        private static void Observer()
+        {
+            //Example1();
+
+            Console.WriteLine("----------------------------Example 2----------------------------");
+
+            AnimeFanClub animeFanclub = new AnimeFanClub();
+
+            UserA userA = new UserA();
+            animeFanclub.Attach(userA);
+            animeFanclub.PostsAnimeMovieToGroup("AttackOnTitan", "so awesome", true);
+
+            UserB userB = new UserB();
+            animeFanclub.Attach(userB);
+            animeFanclub.PostsAnimeMovieToGroup("OnePunch", "What is fun of your life", false);
+
+            animeFanclub.Detach(userA);
+            animeFanclub.Detach(userB);
+
+            animeFanclub.PostsAnimeMovieToGroup("OnePiece", "this is never end??", false);
+            animeFanclub.PostsEventToGroup("Be yourself Together", "Summer event");
+
+        }
+
+        private static void Example1()
+        {
+            Console.WriteLine("----------------------------Observer Pattern----------------------------");
+            Console.WriteLine("----------------------------Example 1----------------------------");
+            // Đầu tiên ta tạo 1 object từ Subject class tức là Publisher là class quản lý các thông tin sự kiện mà object khác cần theo dõi 
+            var subject = new Subject();
+
+            // Sau đó ta sẽ tạo các ConcreteObserver object tức là các object đang quan tâm tới Subject class 
+            // nói dễ hiểu hơn thì Subject class đại diện cho một chủ đề mà ta đang quan tâm trong chủ đề đó sẻ chia thành nhiều phần nhỏ giống như một tờ báo có nhiều mục
+            var observerA = new ConcreteObserverA();
+
+            Console.WriteLine("------------------------------------------------------------------------");
+            // sau khi tạo ra ta sẽ attach các ConcreteObserver object này vào trong Subject để Subject có thể thông báo đến các ConcreteObserver object khi nó có sự thay đổi nào đó
+            subject.Attach(observerA);
+            Console.WriteLine($"----------------------------Subject Attach A----------------------------");
+            // ta sẽ gọi xử lý các logic code trong Subject class nếu có sự thay đổi nào mà ConcreteObserver object đó đang quan tâm nó nó có thể nhìn thấy được còn không quan tâm sẽ không hiển thị lên.
+            subject.SomeBusinessLogicStatusName("Sunny");
+            subject.SomeBusinessLogicStatusNumber(1);
+            subject.SomeBusinessLogicStatusCheck(false);
+
+
+            var observerB = new ConcreteObserverB();
+            Console.WriteLine("--------------------------------------------------------------------------");
+            subject.Attach(observerB);
+            Console.WriteLine($"----------------------------Subject Attach B ----------------------------");
+            subject.SomeBusinessLogicStatusName("Rainy");
+            subject.SomeBusinessLogicStatusNumber(2);
+            subject.SomeBusinessLogicStatusCheck(false);
+
+
+            Console.WriteLine("------------------------------------------------------------------------");
+
+            // Khi ta thấy không muốn object nào đó theo dõi hoặc là quan tâm đến các thông tin và sự kiện từ Subject nữa ta có thể gỡ bỏ object đó ra khỏi Subject để khi có thông báo sẽ không phải gửi đến object này nữa 
+            subject.Detach(observerB);
+            Console.WriteLine($"----------------------------Subject Detach B ----------------------------");
+            // Khi gỡ ra khỏi đó thì nó cũng sẽ không cập nhật bất kì sự kiện nào từ Subject nữa
+            subject.SomeBusinessLogicStatusName("Thunder");
+            subject.SomeBusinessLogicStatusNumber(3);
+            subject.SomeBusinessLogicStatusCheck(false);
+        }
+
         private static void Strategy()
         {
             Console.WriteLine("----------------------------Strategy----------------------------");

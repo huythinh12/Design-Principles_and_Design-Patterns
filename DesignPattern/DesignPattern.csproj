@@ -56,6 +56,16 @@
     <Compile Include="FactoryMethod\Shape\IShape.cs" />
     <Compile Include="FactoryMethod\Shape\Rectangle.cs" />
     <Compile Include="FactoryMethod\Shape\Square.cs" />
+    <Compile Include="Observer\AnimeObserver\AnimeFanClub.cs" />
+    <Compile Include="Observer\AnimeObserver\IEventListeners.cs" />
+    <Compile Include="Observer\AnimeObserver\IEventManager.cs" />
+    <Compile Include="Observer\AnimeObserver\UserA.cs" />
+    <Compile Include="Observer\AnimeObserver\UserB.cs" />
+    <Compile Include="Observer\BasicObserver\ConcreteObserverA.cs" />
+    <Compile Include="Observer\BasicObserver\ConcreteObserverB.cs" />
+    <Compile Include="Observer\BasicObserver\IObserver.cs" />
+    <Compile Include="Observer\BasicObserver\ISubject.cs" />
+    <Compile Include="Observer\BasicObserver\Subject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategy\Character.cs" />
