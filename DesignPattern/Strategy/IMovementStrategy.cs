@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DesignPattern.Strategy
 {
+    // đây được gọi là interface strategy
     public interface IMovementStrategy
     {
         string Move();

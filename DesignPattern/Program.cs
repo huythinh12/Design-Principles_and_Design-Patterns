@@ -21,10 +21,27 @@ namespace DesignPattern
         private static void Strategy()
         {
             Console.WriteLine("----------------------------Strategy----------------------------");
+            // Ta sẽ khởi tạo một object từ Context class tức là class dùng để giải quyết vấn đề chính
+            // Sau đó ta sẽ truyền vào các ConcreteStrategies class tức là các class con được tạo ra nhằm để giải quyết các chiến lược khác nhau.
             Character character = new Character();
-            character.SetMovementStrategy(new Human());
-            character.GetMovementType();
-            character.DisplayInfo("Lariod",100,50);
+            Random random = new Random();
+            int number = random.Next(0, 2);
+            switch (number)
+            {
+                case 0:
+                    character.SetMovementStrategy(new Human());
+                    character.GetMovementType();
+                    character.DisplayInfo("Soldier", 100, 50);
+                    break;
+                case 1 :
+                    character.SetMovementStrategy(new Dragon());
+                    character.GetMovementType();
+                    character.DisplayInfo("BlackDragon", 1000, 160);
+                    break;
+                default:
+                    break;
+            }
+
         }
         private static void FactoryMethod()
         {

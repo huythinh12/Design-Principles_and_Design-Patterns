@@ -1,8 +1,9 @@
-﻿using System;
+﻿
 
 namespace DesignPattern.Strategy
 {
-    class Human : Character,IMovementStrategy
+    // đây là ConcreteStrategies class
+    class Human : IMovementStrategy
     {
      
         public string Move()
